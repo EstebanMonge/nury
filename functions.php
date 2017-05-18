@@ -71,12 +71,14 @@
 				<div class="panel-body">
 					<form action="add_encounter.php" class="register" method="POST">
 						<div class="encounter">
+						<h1>Padecimiento: </h1>
 							<button class="add_field_button">Añadir padecimiento</button>
 							<div><input type="text" name="encounter[]"></div>
 						</div>
 							<input type="hidden" name="id" value="'.$id.'">
-							<input type="hidden" name="updated" value="'.date('Y-m-d G:i:s').'">
-							<input class="submit" type="submit" value="Guardar" />
+							<input type="hidden" name="updated" value="'.date('Y-m-d G:i:s').'">';
+							$html.=draw_exam(5);
+							$html.='<input class="submit" type="submit" value="Guardar" />
 					</form>
 				</div>
 			</div>
@@ -109,5 +111,27 @@
 	Database::disconnect();
 	$html.='</div>';
 	return $html;
+	}
+
+	function draw_exam($section) {
+	        $pdo = Database::connect();
+		$sql= "select * from items where section_id=".$section.' and active = 1 order by sort ASC';
+		$q = $pdo->prepare($sql);
+		$q->execute();
+		$html='';
+		$html.='<h1>Examen físico:</h1>';
+		Database::disconnect();
+		foreach ($q as $row) {
+		                        $html.='<div class="row">
+                	        	                <div class="col-md-3"><strong>'.$row['name'].': </strong></div>
+                        	        	        <div class="col-md-3">
+                                				<input type="radio" name="'.$row['id'].'" value="anormal"> Anormal 
+                                                		<input type="radio" name="'.$row['id'].'" value="normal" checked> Normal
+                                	       		</div>
+                                        		<div class="col-md-6">Detalles: <input type="text" name="details'.$row['id'].'" value="'.$item_details.'"></div>
+                                		</div>';
+
+			}
+		return $html;
 	}
 ?>
