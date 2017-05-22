@@ -34,7 +34,8 @@
                                 		$html.='        <input type="radio" name="'.$row['id'].'" value="yes" checked> Sí
                                                 		<input type="radio" name="'.$row['id'].'" value="no"> No';
 					}
-                                	$html.='       	</div>
+                                	$html.='
+						       	</div>
                                         		<div class="col-md-6">Detalles: <input type="text" name="details'.$row['id'].'" value="'.$item_details.'"></div>
                                 		</div>';
 
@@ -47,6 +48,7 @@
                                                 		<input type="radio" name="'.$row['id'].'" value="no" checked> No
                                         		</div>
                                         		<div class="col-md-6">Detalles: <input type="text" name="details'.$row['id'].'"></div>
+                                        		<input type="hidden" name="state'.$row['id'].'" value="new">
                                 		</div>';
 			}
 		}
