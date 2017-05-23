@@ -43,7 +43,7 @@
       </div>
     </nav>
 <?php
-	if (isset($data['id'])) { 
+	if (isset($data['found'])) { 
 		echo '<form action="update.php" method="post" id="patient">';
 		echo '<div class="alert alert-success alert-dismissable">
   		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -182,7 +182,7 @@ $(document).ready(function() {
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
             x++; //text box increment
-            $(wrapper).append('<div><input type="text" name="encounter[]"/><a href="#" class="remove_field">Eliminar</a></div>'); //add input box
+            $(wrapper).append('<div><br><textarea class="form-control" rows="3" name="encounter[]"></textarea><a href="#" class="remove_field">Eliminar</a></div>'); //add input box
         }
     });
    

@@ -75,10 +75,12 @@
 						<div class="encounter">
 						<h1>Padecimiento: </h1>
 							<button class="add_field_button">Añadir padecimiento</button>
-							<div><input type="text" name="encounter[]"></div>
-						</div>
+							<div><textarea class="form-control" rows="3" name="encounter[]"></textarea></div>
 							<input type="hidden" name="id" value="'.$id.'">
-							<input type="hidden" name="updated" value="'.date('Y-m-d G:i:s').'">';
+							<input type="hidden" name="updated" value="'.date('Y-m-d G:i:s').'">
+						</div>
+						<h1>Tratamiento: </h1>
+							<textarea class="form-control" rows="5" name="treatment"></textarea>';
 							$html.=draw_exam(5);
 							$html.='<input class="submit" type="submit" value="Guardar" />
 					</form>
@@ -95,7 +97,8 @@
 						</h4>
 					</div>
 					<div id="collapse'.$collapse.'" class="panel-collapse collapse">
-						<div class="panel-body">';
+						<div class="panel-body">
+						<h1>Padecimiento: </h1>';
                 			$sql="select * from encounters_data where encounter_id =".$row['id']." order by id ASC";
                 			$q = $pdo->prepare($sql);
                 			$q->execute();
@@ -105,7 +108,11 @@
 						$html.='<p><b>Padecimiento '.$item.':</b> '.$filas['encounter_details'].'</p>';
 						$item++;
 					}
-					$html.='</div>
+                			$sql="select * from treatments where encounter_id =".$row['id']." order by id ASC";
+                			$q = $pdo->prepare($sql);
+                			$q->execute();
+                			$treatment=$q->fetchAll();
+					$html.='<h1>Tratamiento: </h1><p>'.$treatment[0]['treatment_details'].'</p></div>
 					</div>
  				 </div>';
 			$collapse++;

@@ -9,7 +9,6 @@
 		)
 	);
 	if (isset($_GET["id"])) {
-		echo $_GET["id"];	
 		$id=$_GET["id"];
 	}
 	else {
@@ -34,10 +33,12 @@
                             $data['height']=$row['height'];
                             $data['weight']=$row['weight'];
                             $data['civilstate']=$row['civilstate'];
+			    $data['found']="found";
                             $data['imc']=$row['imc'];
                    }
 	if (!isset($data['id'])) {
 		$data['notfound']="notfound";
+		$data['id']=$id;
 	}
 	Database::disconnect();
 	$dataString=serialize($data);
