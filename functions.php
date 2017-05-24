@@ -36,7 +36,7 @@
 					}
                                 	$html.='
 						       	</div>
-                                        		<div class="col-md-6">Detalles: <input type="text" name="details'.$row['id'].'" value="'.$item_details.'"></div>
+                                        		<div class="col-md-6">Detalles: <textarea class="form-control" rows="1" name="details'.$row['id'].'">'.$item_details.'</textarea></div>
                                 		</div>';
 
 			}
@@ -47,7 +47,7 @@
                                                 		<input type="radio" name="'.$row['id'].'" value="yes"> Sí
                                                 		<input type="radio" name="'.$row['id'].'" value="no" checked> No
                                         		</div>
-                                        		<div class="col-md-6">Detalles: <input type="text" name="details'.$row['id'].'"></div>
+                                        		<div class="col-md-6">Detalles: <textarea class="form-control" rows="1" name="details'.$row['id'].'"></textarea></div>
                                         		<input type="hidden" name="state'.$row['id'].'" value="new">
                                 		</div>';
 			}
@@ -82,7 +82,7 @@
 						<h1>Tratamiento: </h1>
 							<textarea class="form-control" rows="5" name="treatment"></textarea>';
 							$html.=draw_exam(5);
-							$html.='<div class="pull-right"><input class="submit" type="submit" value="Guardar" /></div>
+							$html.='<div class="pull-right"><button type="submit" class="btn btn-primary">Guardar</button></div>
 					</form>
 				</div>
 			</div>
@@ -137,7 +137,7 @@
                                 				<input type="radio" name="'.$row['id'].'" value="anormal"> Anormal 
                                                 		<input type="radio" name="'.$row['id'].'" value="normal" checked> Normal
                                 	       		</div>
-                                        		<div class="col-md-6">Detalles: <input type="text" name="details'.$row['id'].'" value="'.$item_details.'"></div>
+                                        		<div class="col-md-6">Detalles: <textarea class="form-control" rows="1" name="details'.$row['id'].'">'.$item_details.'</textarea></div>
                                 		</div>';
 
 			}

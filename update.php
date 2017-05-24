@@ -37,7 +37,7 @@
                 $item_value=$_POST[$row['id']];
                 $item_details=$_POST["details".$row['id']];
                 $item_state=$_POST["state".$row['id']];
-                if ( $item_details != "" || $item_details == "yes") {
+                if ( $item_details != "" || $item_value == "yes") {
 			if ( $item_state == "new" ) {
                         	$sql="INSERT INTO patients_data (patient_id,item_id,item_value,item_details) VALUES (".$id.",".$item_id.",'".$item_value."','".$item_details."')";
                         	$q = $pdo->prepare($sql);
@@ -45,6 +45,8 @@
 			}
 			else {
                         	$sql="UPDATE patients_data SET item_value='".$item_value."', item_details='".$item_details."' WHERE patient_id = ".$id." AND item_id=".$item_id;
+				echo $sql;
+				exit();
                         	$q = $pdo->prepare($sql);
                         	$q->execute();
 			}

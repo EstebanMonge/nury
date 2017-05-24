@@ -129,7 +129,7 @@
 	<h1>Antecedentes Quirúrgicos:</h1>
 	<div class="row">
 		<div class="col-md-8">
-			<textarea name="antecedentesquirurgicos" form="patient">Escriba los detalles...</textarea>
+			<textarea class="form-control" rows="3" name="antecedentesquirurgicos">Escriba los detalles...</textarea>
 		</div>
 	</div>
     </div><!-- /.container -->
@@ -141,9 +141,9 @@
 	<div class="pull-right">
 <?php
 	if (isset($data['id'])) { 
-		echo '<button type="submit" class="btn btn-default">Aplicar cambios</button>'; }
+		echo '<button type="submit" class="btn btn-primary">Aplicar cambios</button>'; }
 	else {
-                echo '<button type="submit" class="btn btn-default">Crear paciente</button>'; 
+                echo '<button type="submit" class="btn btn-primary">Crear paciente</button>'; 
 	}
 ?>
         </div>
