@@ -82,7 +82,7 @@
 						<h1>Tratamiento: </h1>
 							<textarea class="form-control" rows="5" name="treatment"></textarea>';
 							$html.=draw_exam(5);
-							$html.='<input class="submit" type="submit" value="Guardar" />
+							$html.='<div class="pull-right"><input class="submit" type="submit" value="Guardar" /></div>
 					</form>
 				</div>
 			</div>

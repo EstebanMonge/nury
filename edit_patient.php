@@ -76,7 +76,7 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-6"><strong>Fecha de nacimiento: </strong><input type="text" id="birthdate" name="birthdate" value="<?= $data['birthdate'] ?>"required></div>
-		<div class="col-xs-6"><strong>Edad: </strong></div>
+		<div class="col-xs-6"><strong>Edad: </strong><input type="text" id="age"></div>
 	</div>
 	<div class="row">
 		<div class="col-md-8"><strong>Dirección: </strong><input type="text" name="address"  value="<?= $data['address'] ?>" required></div>
@@ -190,6 +190,19 @@ $(document).ready(function() {
         e.preventDefault(); $(this).parent('div').remove(); x--;
     })
 });
+   </script>
+   <script>
+	function getAge(dateString) {
+	var today = new Date();
+	var birthDate = new Date(dateString);
+	var age = today.getFullYear() - birthDate.getFullYear();
+	var m = today.getMonth() - birthDate.getMonth();
+	if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+		age--;
+  	}
+	return age;
+	}
+	document.getElementById("age").value = getAge('<?= $data['birthdate']?>');
    </script>
    </body>
 </html>
