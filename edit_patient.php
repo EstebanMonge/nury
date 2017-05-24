@@ -24,10 +24,10 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type"button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -140,7 +140,7 @@
 	?>
 	<div class="pull-right">
 <?php
-	if (isset($data['id'])) { 
+	if (isset($data['found'])) { 
 		echo '<button type="submit" class="btn btn-primary">Aplicar cambios</button>'; }
 	else {
                 echo '<button type="submit" class="btn btn-primary">Crear paciente</button>'; 
