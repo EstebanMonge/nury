@@ -27,6 +27,22 @@
 	$q = $pdo->prepare($sql);
         $q->execute();
 
+
+        $sql= "SELECT * FROM items WHERE active = 1 AND section_id = 5 ORDER BY sort ASC";
+        $q = $pdo->prepare($sql);
+        $q->execute();
+        foreach ($q as $row) {
+                $item_id=$row['id'];
+                $item_value=$_POST[$row['id']];
+                $item_details=$_POST["details".$row['id']];
+                if ( $item_details != "" || $item_details == "yes") {
+                        $sql="INSERT INTO exams (encounter_id,item_id,item_value,item_details) VALUES (".$encounter_id.",".$item_id.",'".$item_value."','".$item_details."')";
+                        $q = $pdo->prepare($sql);
+                        $q->execute();
+                }
+        }
+
+
 	Database::disconnect();
 	header("Location: search.php?id=".$id);
 ?>

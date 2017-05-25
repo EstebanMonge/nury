@@ -29,7 +29,7 @@
         $q = $pdo->prepare($sql);
 	$q->execute();
 
-	$sql= "SELECT * FROM items WHERE active = 1 ORDER BY sort ASC";
+	$sql= "SELECT * FROM items WHERE active = 1 AND section_id IN (1, 2, 4) ORDER BY sort ASC";
 	$q = $pdo->prepare($sql);
         $q->execute();
 	foreach ($q as $row) {

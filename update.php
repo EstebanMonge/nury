@@ -46,7 +46,6 @@
 			else {
                         	$sql="UPDATE patients_data SET item_value='".$item_value."', item_details='".$item_details."' WHERE patient_id = ".$id." AND item_id=".$item_id;
 				echo $sql;
-				exit();
                         	$q = $pdo->prepare($sql);
                         	$q->execute();
 			}
