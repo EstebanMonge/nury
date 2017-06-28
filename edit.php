@@ -17,11 +17,35 @@
 	}
 	$birthdate=$_POST["birthdate"];
 	$address=$_POST["address"];
-	$occupation=$_POST["occupation"];
+	if ($_POST["occupation"] != '')
+	{
+		$occupation=$_POST["occupation"];
+	}
+	else {
+		$occupation="''";
+	}
 	$civilstate=$_POST["civilstate"];
-	$height=$_POST["height"];
-	$weight=$_POST["weight"];
-	$imc=$_POST["imc"];
+	if ($_POST["height"] != '')
+	{
+		$height=$_POST["height"];
+	}
+	else {
+		$height="''";
+	}
+	if ($_POST["weight"] != '')
+	{
+		$weight=$_POST["weight"];
+	}
+	else {
+		$weight="''";
+	}
+	if ($_POST["imc"] != '')
+	{
+		$imc=$_POST["imc"];
+	}
+	else {
+		$imc="''";
+	}
 
 
         $pdo = Database::connect();

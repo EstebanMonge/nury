@@ -82,7 +82,7 @@
 		<div class="col-md-8"><strong>Dirección: </strong><input type="text" name="address"  value="<?= $data['address'] ?>" required></div>
 	</div>
 	<div class="row">
-		<div class="col-xs-6"><strong>Ocupación: </strong><input type="text" name="occupation"  value="<?= $data['occupation'] ?>" required></div>
+		<div class="col-xs-6"><strong>Ocupación: </strong><input type="text" name="occupation"  value="<?= $data['occupation'] ?>"></div>
 		<div class="col-xs-6"><strong>Estado Civil: </strong>
 			<select name="civilstate" required>
 			<option value="Casado" <?php $selected=($data['civilstate'] == "Casado") ? 'selected="selected"' : ''; echo $selected; ?> >Casado</option>
@@ -94,9 +94,9 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-4"><strong>Talla (cm): </strong><input type="number" name="height" value="<?= $data['height'] ?>" required></div>
-		<div class="col-md-4"><strong>Peso (kg): </strong><input type="number" name="weight" value="<?= $data['weight'] ?>" required></div>
-		<div class="col-md-4"><strong>IMC: </strong><input type="number" name="imc" value="<?= $data['imc'] ?>" required></div>
+		<div class="col-md-4"><strong>Talla (cm): </strong><input type="number" name="height" value="<?= $data['height'] ?>"></div>
+		<div class="col-md-4"><strong>Peso (kg): </strong><input type="number" name="weight" value="<?= $data['weight'] ?>"></div>
+		<div class="col-md-4"><strong>IMC: </strong><input type="text" id="imc" ></div>
 	</div>
     </div><!-- /.container -->
     <div class="container">
@@ -130,6 +130,14 @@
 	<div class="row">
 		<div class="col-md-8">
 			<textarea class="form-control" rows="3" name="antecedentesquirurgicos">Escriba los detalles...</textarea>
+		</div>
+	</div>
+    </div><!-- /.container -->
+    <div class="container">
+	<h1>Antecedentes Heredo Familiares:</h1>
+	<div class="row">
+		<div class="col-md-8">
+			<textarea class="form-control" rows="3" name="antecedentesheredofamiliares">Escriba los detalles...</textarea>
 		</div>
 	</div>
     </div><!-- /.container -->
@@ -200,9 +208,28 @@ $(document).ready(function() {
 	if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
 		age--;
   	}
-	return age;
+	if (isNaN(age)) {
+        	return 0;
+   	}
+   	else {
+		return age;
+	}
 	}
 	document.getElementById("age").value = getAge('<?= $data['birthdate']?>');
+   </script>
+   <script>
+   function getIMC() {
+   var height=<?= $data['height']?>;
+   var weight=<?= $data['weight']?>;
+   var imc = weight / (height/100*height/100);
+   if (isNaN(imc)) {
+	return 0;
+   }
+   else {
+   	return Number(Math.round(imc+'e1')+'e-1');
+   }
+   }
+   document.getElementById("imc").value = getIMC();
    </script>
    </body>
 </html>
