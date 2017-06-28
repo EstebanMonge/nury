@@ -129,15 +129,15 @@
 	<h1>Antecedentes Quirúrgicos:</h1>
 	<div class="row">
 		<div class="col-md-8">
-			<textarea class="form-control" rows="3" name="antecedentesquirurgicos">Escriba los detalles...</textarea>
+			<textarea class="form-control" rows="3" name="129"><?php print_r(get_patient_data($data['id'],"129"));?></textarea>
 		</div>
 	</div>
     </div><!-- /.container -->
     <div class="container">
-	<h1>Antecedentes Heredo Familiares:</h1>
+	<h1>Antecedentes Heredofamiliares:</h1>
 	<div class="row">
 		<div class="col-md-8">
-			<textarea class="form-control" rows="3" name="antecedentesheredofamiliares">Escriba los detalles...</textarea>
+			<textarea class="form-control" rows="3" name="130"><?php echo get_patient_data($id,"130");?></textarea>
 		</div>
 	</div>
     </div><!-- /.container -->

@@ -2,6 +2,14 @@
 
         include 'database.php';
 
+	function get_patient_data($id,$item) {
+		$pdo = Database::connect();
+                $sql="select * from patients_data where patient_id =".$id." AND item_id = ".$item;
+                $q = $pdo->prepare($sql);
+                $q->execute();
+                $items=$q->fetchAll();
+		return $items[0]['item_details'];
+        }
 	function draw_section($section,$id) {
 	        $pdo = Database::connect();
 		$sql="select * from patients_data where patient_id =".$id;

@@ -8,6 +8,20 @@
 	$lname=$_POST["lname"];
 	$fphone=$_POST["fphone"];
 	$id=$_POST["id"];
+        if ($_POST["129"] != '')
+        {
+                $antecedentesquirurgicos=$_POST["129"];
+        }
+        else {
+                $antecedentesquirurgicos="''";
+        }
+        if ($_POST["130"] != '')
+        {
+                $antecedentesheredofamiliares=$_POST["130"];
+        }
+        else {
+                $antecedentesheredofamiliares="''";
+        }
         if ($_POST["sphone"] != '')
         {
                 $sphone=$_POST["sphone"];
